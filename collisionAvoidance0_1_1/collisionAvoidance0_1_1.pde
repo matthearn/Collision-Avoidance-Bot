@@ -1,4 +1,4 @@
-//Arduino PWM Code：
+
 //M1: Direction for Motor1
 //M2: Direction for Motor2
 //E1: PWM control for Motor1
@@ -8,7 +8,6 @@ int M1 = 4;
 int E2 = 6;
 int M2 = 7;
 
-int forwardEnable = 2;
 
 void setup()
 {
@@ -18,19 +17,23 @@ void setup()
 }
 void loop()
 {
-    int fRange = 0;
-  int fRangeResult =0;
+  int fRangeRight = 0;
+  int fRangeLeft = 1;
+  int fRangeRightResult =0;
+  int fRangeLeftResult =0;
 
-  fRangeResult = analogRead(fRange); 
+
+  fRangeRightResult = analogRead(fRangeRight); 
+  fRangeLeftResult = analogRead(fRangeLeft); 
 
 
-  if(fRangeResult < 280)
+  if(fRangeRightResult || fRangeLeftResult < 280)
   {
     forwardSlow();
   }
   else
   {
-    rotate();
+    STOP();
   }
 }
 

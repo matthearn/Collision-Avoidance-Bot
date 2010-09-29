@@ -24,7 +24,7 @@ void loop()
   fRangeResult = analogRead(fRange); 
 
 
-  if(fRangeResult < 280)
+  if(fRangeResult < 180)
   {
     forwardSlow();
   }
@@ -34,26 +34,22 @@ void loop()
   }
 }
 
-int forwardSlow()
+void forwardSlow()
 {
   digitalWrite(M1,HIGH);
   digitalWrite(M2, HIGH);
-  analogWrite(E1, 110); //PWM Speed control
-  analogWrite(E2, 110); //PWM Speed control
+  analogWrite(E1, 150); //PWM Speed control
+  analogWrite(E2, 150); //PWM Speed control
 }
-int rotate()
+void rotate()
 {
   digitalWrite(M1, HIGH);
   digitalWrite(M2, LOW);
   analogWrite(E1, 255);
   analogWrite(E2, 255);
 }  
-int STOP()
+void STOP()
 {
   analogWrite(E1, 0); //PWM Speed control
   analogWrite(E2, 0); //PWM Speed control
-}
-int rangerForwardRead()
-{
-
 }
