@@ -8,20 +8,22 @@ int M1 = 4;
 int E2 = 6;
 int M2 = 7;
 
+//Define Analog Pins for the range sensors
+int fRangeRight = 0;
+int fRangeLeft = 1;
 
+//Define variables for the data from the range sensors to live in
+int fRangeRightResult =0;
+int fRangeLeftResult =0;
+  
 void setup()
 {
-    pinMode(M1, OUTPUT);
-    pinMode(M2, OUTPUT);
-    Serial.begin(9600); 
+  pinMode(M1, OUTPUT);
+  pinMode(M2, OUTPUT);
+  Serial.begin(9600); 
 }
 void loop()
 {
-  int fRangeRight = 0;
-  int fRangeLeft = 1;
-  int fRangeRightResult =0;
-  int fRangeLeftResult =0;
-
 
   fRangeRightResult = analogRead(fRangeRight); 
   fRangeLeftResult = analogRead(fRangeLeft); 
