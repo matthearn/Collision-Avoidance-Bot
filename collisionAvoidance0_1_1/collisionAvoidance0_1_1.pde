@@ -20,7 +20,7 @@ void setup()
 {
   pinMode(M1, OUTPUT);
   pinMode(M2, OUTPUT);
-  Serial.begin(9600); //for debugging
+  //Serial.begin(9600); //for debugging
 }
 void loop()
 {
@@ -31,12 +31,12 @@ void loop()
   
   if(fRangeRightResult < 280 && fRangeLeftResult < 280)
   {
-    Serial.println("forward"); //for debugging
+    //Serial.println("forward"); //for debugging
     forwardSlow();
   }
   else
   {
-    Serial.println("rotate"); //for debugging
+    //Serial.println("rotate"); //for debugging
     rotate();
   }
 }
