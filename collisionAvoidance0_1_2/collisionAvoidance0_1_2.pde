@@ -1,3 +1,5 @@
+#define DEBUG_OUTPUT //uncomment to activate debug mode
+
 //M1: Direction for Motor1
 //M2: Direction for Motor2
 //E1: PWM control for Motor1
@@ -36,22 +38,58 @@ void loop()
   
   if(fRangeRightResult > 280 || fRangeLeftResult > 280)
   {
-    //Serial.print("STOP"); //for debugging
-    //Serial.print(fRangeRightResult);
-    //Serial.print("|");
-    //Serial.println(fRangeLeftResult);
+    #ifdef DEBUG_OUTPUT
+    Serial.print("Twirl"); //for debugging
+    Serial.print(fRangeRightResult);
+    Serial.print("|");
+    Serial.print(fRangeLeftResult);
+    Serial.print("|");
+    Serial.print(sRangeRightResult);
+    Serial.print("|");
+    Serial.println(sRangeLeftResult);
+    #endif
     rotate();
   }
   else if(sRangeRightResult > 350)
   {
+    #ifdef DEBUG_OUTPUT
+    Serial.print("Steering Right"); //for debugging
+    Serial.print(fRangeRightResult);
+    Serial.print("|");
+    Serial.print(fRangeLeftResult);
+    Serial.print("|");
+    Serial.print(sRangeRightResult);
+    Serial.print("|");
+    Serial.println(sRangeLeftResult);
+    #endif
     forwardRight();
+  }
+    else if(sRangeLeftResult > 350)
+  {
+    #ifdef DEBUG_OUTPUT
+    Serial.print("Steering Left"); //for debugging
+    Serial.print(fRangeRightResult);
+    Serial.print("|");
+    Serial.print(fRangeLeftResult);
+    Serial.print("|");
+    Serial.print(sRangeRightResult);
+    Serial.print("|");
+    Serial.println(sRangeLeftResult);
+    #endif
+    forwardLeft();
   }
   else
   {
-    //Serial.print("forward"); //for debugging
-    //Serial.print(fRangeRightResult);
-    //Serial.print("|");
-    //Serial.println(fRangeLeftResult);
+    #ifdef DEBUG_OUTPUT
+    Serial.print("forward"); //for debugging
+    Serial.print(fRangeRightResult);
+    Serial.print("|");
+    Serial.print(fRangeLeftResult);
+    Serial.print("|");
+    Serial.print(sRangeRightResult);
+    Serial.print("|");
+    Serial.println(sRangeLeftResult);
+    #endif
     forwardSlow();
   }
 }
@@ -69,6 +107,14 @@ void forwardRight()
   digitalWrite(M2, HIGH);
   analogWrite(E1, 130);
   analogWrite(E2, 100);
+  
+}
+void forwardLeft()
+{
+  digitalWrite(M1, HIGH);
+  digitalWrite(M2, HIGH);
+  analogWrite(E1, 100);
+  analogWrite(E2, 130);
   
 }
 void rotate()
