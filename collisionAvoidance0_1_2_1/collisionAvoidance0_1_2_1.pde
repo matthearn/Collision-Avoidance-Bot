@@ -1,3 +1,5 @@
+//DEBUG VERSION JUST STEERING SUBROUTINES ENANBLED
+
 #define DEBUG_OUTPUT //uncomment to activate debug mode
 
 //M1: Direction for Motor1
