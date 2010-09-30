@@ -20,7 +20,7 @@ void setup()
 {
   pinMode(M1, OUTPUT);
   pinMode(M2, OUTPUT);
-  //Serial.begin(9600); //for debugging
+  Serial.begin(9600); //for debugging
 }
 void loop()
 {
@@ -29,15 +29,21 @@ void loop()
   fRangeLeftResult = analogRead(fRangeLeft); 
 
   
-  if(fRangeRightResult < 280 && fRangeLeftResult < 280)
+  if(fRangeRightResult > 280 || fRangeLeftResult > 280)
   {
-    //Serial.println("forward"); //for debugging
-    forwardSlow();
+    Serial.print("STOP"); //for debugging
+    Serial.print(fRangeRightResult);
+    Serial.print("|");
+    Serial.println(fRangeLeftResult);
+    STOP();
   }
   else
   {
-    //Serial.println("rotate"); //for debugging
-    rotate();
+    Serial.print("forward"); //for debugging
+    Serial.print(fRangeRightResult);
+    Serial.print("|");
+    Serial.println(fRangeLeftResult);
+    forwardSlow();
   }
 }
 
