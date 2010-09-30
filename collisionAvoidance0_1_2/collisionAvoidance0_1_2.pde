@@ -12,8 +12,8 @@ int M2 = 7;
 //Define Analog Pins for the range sensors
 int fRangeRight = 0; //Front Right Sensor
 int fRangeLeft = 1;  //Front Left Sensor
-int sRangeRight = 3; //Side Right Sensor
-int sRangeLeft = 4;  //Side Left Sensor
+int sRangeRight = 2; //Side Right Sensor
+int sRangeLeft = 3;  //Side Left Sensor
 
 //Define variables for the data from the range sensors to live in
 int fRangeRightResult = 0;
