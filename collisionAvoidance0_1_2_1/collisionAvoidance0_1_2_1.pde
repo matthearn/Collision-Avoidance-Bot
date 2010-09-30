@@ -53,14 +53,14 @@ void loop()
     #endif
     STOP();
   }
-  else if(sRangeRightResult > 350)
+  else if(sRangeRightResult > 300)
   {
     #ifdef DEBUG_OUTPUT
     Serial.print("Steering Right"); //for debugging
     #endif
     forwardRight();
   }
-    else if(sRangeLeftResult > 350)
+    else if(sRangeLeftResult > 300)
   {
     #ifdef DEBUG_OUTPUT
     Serial.print("Steering Left"); //for debugging
