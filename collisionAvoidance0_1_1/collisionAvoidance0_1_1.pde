@@ -15,7 +15,7 @@ int fRangeLeft = 1;
 //Define variables for the data from the range sensors to live in
 int fRangeRightResult =0;
 int fRangeLeftResult =0;
-  
+ 
 void setup()
 {
   pinMode(M1, OUTPUT);
@@ -28,8 +28,8 @@ void loop()
   fRangeRightResult = analogRead(fRangeRight); 
   fRangeLeftResult = analogRead(fRangeLeft); 
 
-
-  if(fRangeRightResult && fRangeLeftResult < 280)
+  
+  if(fRangeRightResult < 280 && fRangeLeftResult < 280)
   {
     Serial.println("forward");
     forwardSlow();
