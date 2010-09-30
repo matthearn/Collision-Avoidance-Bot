@@ -1,4 +1,3 @@
-
 //M1: Direction for Motor1
 //M2: Direction for Motor2
 //E1: PWM control for Motor1
@@ -31,18 +30,18 @@ void loop()
   
   if(fRangeRightResult > 280 || fRangeLeftResult > 280)
   {
-    Serial.print("STOP"); //for debugging
-    Serial.print(fRangeRightResult);
-    Serial.print("|");
-    Serial.println(fRangeLeftResult);
+    //Serial.print("STOP"); //for debugging
+    //Serial.print(fRangeRightResult);
+    //Serial.print("|");
+    //Serial.println(fRangeLeftResult);
     STOP();
   }
   else
   {
-    Serial.print("forward"); //for debugging
-    Serial.print(fRangeRightResult);
-    Serial.print("|");
-    Serial.println(fRangeLeftResult);
+    //Serial.print("forward"); //for debugging
+    //Serial.print(fRangeRightResult);
+    //Serial.print("|");
+    //Serial.println(fRangeLeftResult);
     forwardSlow();
   }
 }
