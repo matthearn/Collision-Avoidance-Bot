@@ -49,7 +49,7 @@ void loop()
     #ifdef DEBUG_OUTPUT
     Serial.print("Twirl"); //for debugging
     #endif
-    rotate();
+    STOP();
   }
   else if(sRangeRightResult > 350)
   {
@@ -71,7 +71,7 @@ void loop()
     Serial.print("forward"); //for debugging
     Serial.println(sRangeLeftResult);
     #endif
-    forwardSlow();
+    STOP();
   }
 }
 
