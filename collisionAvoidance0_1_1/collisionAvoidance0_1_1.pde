@@ -27,12 +27,14 @@ void loop()
   fRangeLeftResult = analogRead(fRangeLeft); 
 
 
-  if(fRangeRightResult || fRangeLeftResult < 280)
+  if(fRangeRightResult && fRangeLeftResult < 280)
   {
+    Serial.println("forward");
     forwardSlow();
   }
   else
   {
+    Serial.println("STOP");
     STOP();
   }
 }
