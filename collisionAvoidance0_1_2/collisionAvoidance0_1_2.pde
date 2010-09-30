@@ -8,12 +8,16 @@ int E2 = 6;
 int M2 = 7;
 
 //Define Analog Pins for the range sensors
-int fRangeRight = 0;
-int fRangeLeft = 1;
+int fRangeRight = 0; //Front Right Sensor
+int fRangeLeft = 1;  //Front Left Sensor
+int sRangeRight = 3; //Side Right Sensor
+int sRangeLeft = 4;  //Side Left Sensor
 
 //Define variables for the data from the range sensors to live in
-int fRangeRightResult =0;
-int fRangeLeftResult =0;
+int fRangeRightResult = 0;
+int fRangeLeftResult = 0;
+int sRangeRightResult= 0;
+int sRangeLeftResult= 0;
  
 void setup()
 {
@@ -25,8 +29,10 @@ void loop()
 {
 
   fRangeRightResult = analogRead(fRangeRight); 
-  fRangeLeftResult = analogRead(fRangeLeft); 
-
+  fRangeLeftResult = analogRead(fRangeLeft);
+  
+  sRangeRightResult= analogRead(sRangeRight);
+  sRangeLeftResult= analogRead(sRangeLeft);
   
   if(fRangeRightResult > 280 || fRangeLeftResult > 280)
   {
@@ -34,7 +40,11 @@ void loop()
     //Serial.print(fRangeRightResult);
     //Serial.print("|");
     //Serial.println(fRangeLeftResult);
-    STOP();
+    rotate();
+  }
+  else if(sRangeRightResult > 350)
+  {
+    forwardRight();
   }
   else
   {
@@ -53,6 +63,14 @@ void forwardSlow()
   analogWrite(E1, 110); //PWM Speed control
   analogWrite(E2, 110); //PWM Speed control
 }
+void forwardRight()
+{
+  digitalWrite(M1, HIGH);
+  digitalWrite(M2, HIGH);
+  analogWrite(E1, 130);
+  analogWrite(E2, 100);
+  
+}
 void rotate()
 {
   digitalWrite(M1, HIGH);
@@ -65,3 +83,4 @@ void STOP()
   analogWrite(E1, 0); //PWM Speed control
   analogWrite(E2, 0); //PWM Speed control
 }
+
